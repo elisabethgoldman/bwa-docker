@@ -33,6 +33,13 @@ RUN wget https://github.com/lh3/bwa/releases/download/v0.7.13/bwa-0.7.13.tar.bz2
     && cd ../ \
     && rm -rf bwa*
 
+RUN wget https://github.com/samtools/samtools/releases/download/1.3/samtools-1.3.tar.bz2 \
+    && tar xvf samtools-1.3.tar.bz2 \
+    && cd samtools-1.3 \
+    && ./configure --prefix=/home/ubuntu/.local \
+    && make \
+    && make install
+
 ENV PATH ${HOME}/.local/bin:$PATH
 
 WORKDIR ${HOME}
