@@ -2,6 +2,7 @@ FROM quay.io/jeremiahsavage/cdis_base
 
 USER root
 RUN apt-get update && apt-get install -y --force-yes \
+    libncurses5-dev \
     libpq-dev \
     make \
     s3cmd \
