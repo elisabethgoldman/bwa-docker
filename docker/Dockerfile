@@ -48,6 +48,7 @@ WORKDIR ${HOME}
 RUN pip install --user virtualenvwrapper \
     && /bin/bash -c "source ${HOME}/.local/bin/virtualenvwrapper.sh \
     && mkvirtualenv --python=/usr/bin/python3 p3 \
+    && pip install --upgrade pip \
     && pip install --upgrade ipython pandas psycopg2 sqlalchemy \
     && echo source ${HOME}/.local/bin/virtualenvwrapper.sh >> ${HOME}/.bashrc \
     && echo source ${HOME}/.virtualenvs/p3/bin/activate >> ${HOME}/.bashrc"
