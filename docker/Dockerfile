@@ -46,9 +46,9 @@ ENV PATH ${HOME}/.local/bin:$PATH
 WORKDIR ${HOME}
 
 RUN pip install --user virtualenvwrapper \
-    && /bin/bash -c "source ${HOME}/.local/bin/virtualenvwrapper.sh \
+    && /bin/bash -c "source /usr/share/virtualenvwrapper/virtualenvwrapper.sh \
     && mkvirtualenv --python=/usr/bin/python3 p3 \
     && pip install --upgrade pip \
     && pip install --upgrade ipython pandas psycopg2 sqlalchemy \
-    && echo source ${HOME}/.local/bin/virtualenvwrapper.sh >> ${HOME}/.bashrc \
+    && echo source /usr/share/virtualenvwrapper/virtualenvwrapper.sh >> ${HOME}/.bashrc \
     && echo source ${HOME}/.virtualenvs/p3/bin/activate >> ${HOME}/.bashrc"
