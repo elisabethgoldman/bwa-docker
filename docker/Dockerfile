@@ -25,18 +25,18 @@ RUN mkdir ${HOME}/tools
 WORKDIR ${HOME}/tools/
 
 # 2016-03-02
-RUN wget https://github.com/lh3/bwa/releases/download/v0.7.13/bwa-0.7.13.tar.bz2 \
-    && tar xf bwa-0.7.13.tar.bz2 \
-    && cd bwa-0.7.13 \
+RUN wget https://github.com/lh3/bwa/releases/download/v0.7.15/bwa-0.7.15.tar.bz2 \
+    && tar xf bwa-0.7.15.tar.bz2 \
+    && cd bwa-0.7.15 \
     && make \
     && mkdir -p ${HOME}/.local/bin \
     && mv bwa ${HOME}/.local/bin \
     && cd ../ \
     && rm -rf bwa*
 
-RUN wget https://github.com/samtools/samtools/releases/download/1.3/samtools-1.3.tar.bz2 \
-    && tar xvf samtools-1.3.tar.bz2 \
-    && cd samtools-1.3 \
+RUN wget https://github.com/samtools/samtools/releases/download/1.3.1/samtools-1.3.1.tar.bz2 \
+    && tar xvf samtools-1.3.1.tar.bz2 \
+    && cd samtools-1.3.1 \
     && ./configure --prefix=/home/ubuntu/.local \
     && make \
     && make install
