@@ -24,7 +24,7 @@ RUN mkdir ${HOME}/tools
 
 WORKDIR ${HOME}/tools/
 
-# 2016-03-02
+# 2016-06-09
 RUN wget https://github.com/lh3/bwa/releases/download/v0.7.15/bwa-0.7.15.tar.bz2 \
     && tar xf bwa-0.7.15.tar.bz2 \
     && cd bwa-0.7.15 \
