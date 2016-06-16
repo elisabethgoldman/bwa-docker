@@ -1,17 +1,11 @@
 FROM quay.io/jeremiahsavage/cdis_base
 
 USER root
+
 RUN apt-get update && apt-get install -y --force-yes \
     libncurses5-dev \
-    libpq-dev \
     make \
-    s3cmd \
     wget
-
-
-RUN apt-get clean \
-    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
 
 RUN apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
@@ -49,6 +43,6 @@ RUN pip install --user virtualenvwrapper \
     && /bin/bash -c "source /usr/share/virtualenvwrapper/virtualenvwrapper.sh \
     && mkvirtualenv --python=/usr/bin/python3 p3 \
     && pip install --upgrade pip \
-    && pip install --upgrade ipython pandas psycopg2 sqlalchemy \
+    && pip install --upgrade ipython pandas sqlalchemy \
     && echo source /usr/share/virtualenvwrapper/virtualenvwrapper.sh >> ${HOME}/.bashrc \
     && echo source ${HOME}/.virtualenvs/p3/bin/activate >> ${HOME}/.bashrc"
