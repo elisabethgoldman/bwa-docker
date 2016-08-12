@@ -13,7 +13,7 @@ RUN apt-get update \
     && tar xf bwa-0.7.15.tar.bz2 \
     && cd bwa-0.7.15 \
     && make \
-    && mv bwa /usr/local/bin \
+    && mv bwa /usr/local/bin/ \
     && cd ../ \
     && rm -rf bwa* \
     && wget https://github.com/samtools/samtools/releases/download/1.3.1/samtools-1.3.1.tar.bz2 \
