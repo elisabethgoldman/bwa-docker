@@ -9,6 +9,7 @@ RUN apt-get update \
        libncurses5-dev \
        make \
        wget \
+       zlib1g-dev \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && wget https://github.com/lh3/bwa/releases/download/v0.7.15/bwa-0.7.15.tar.bz2 \
