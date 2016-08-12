@@ -5,6 +5,7 @@ MAINTAINER Jeremiah H. Savage <jeremiahsavage@gmail.com>
 RUN apt-get update \
     && apt-get install -y \
        bzip2 \
+       gcc \
        libncurses5-dev \
        make \
        wget \
