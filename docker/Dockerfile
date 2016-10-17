@@ -1,4 +1,4 @@
-FROM ubuntu:xenial-20160809
+FROM ubuntu:xenial-20161010
 
 MAINTAINER Jeremiah H. Savage <jeremiahsavage@gmail.com>
 
@@ -12,9 +12,9 @@ RUN apt-get update \
        zlib1g-dev \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-    && wget https://github.com/lh3/bwa/releases/download/v0.7.15/bwa-0.7.15.tar.bz2 \
-    && tar xf bwa-0.7.15.tar.bz2 \
-    && cd bwa-0.7.15 \
+    && wget https://github.com/jeremiahsavage/bwa/archive/gdc_a.tar.gz \
+    && tar xf gdc_a.tar.gz \
+    && cd bwa-gdc_a \
     && make \
     && mv bwa /usr/local/bin/ \
     && cd ../ \
