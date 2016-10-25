@@ -11,7 +11,6 @@ RUN apt-get update \
        wget \
        zlib1g-dev \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && wget https://github.com/jeremiahsavage/bwa/archive/gdc_a.tar.gz \
     && tar xf gdc_a.tar.gz \
     && cd bwa-gdc_a \
@@ -22,6 +21,8 @@ RUN apt-get update \
     && wget https://github.com/samtools/samtools/releases/download/1.3.1/samtools-1.3.1.tar.bz2 \
     && tar xvf samtools-1.3.1.tar.bz2 \
     && cd samtools-1.3.1 \
-    && ./configure \
+    && ./configure --prefix=/usr/local \
     && make \
     && make install
+    && rm -rf samtools* \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
