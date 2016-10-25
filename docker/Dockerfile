@@ -13,6 +13,8 @@ RUN echo 'Acquire::http::Proxy "http://cloud-proxy:3128";' >> /etc/apt/apt.conf.
        wget \
        zlib1g-dev \
     && apt-get clean \
+    && export http_proxy=http://cloud-proxy:3128 \
+    && export https_proxy=http://cloud-proxy:3128 \
     && wget https://github.com/jeremiahsavage/bwa/archive/gdc_a.tar.gz \
     && tar xf gdc_a.tar.gz \
     && cd bwa-gdc_a \
