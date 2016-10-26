@@ -23,6 +23,6 @@ RUN apt-get update \
     && cd samtools-1.3.1 \
     && ./configure --prefix=/usr/local \
     && make \
-    && make install
+    && make install \
     && rm -rf samtools* \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
