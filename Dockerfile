@@ -1,4 +1,4 @@
-FROM ubuntu:xenial-20161010
+FROM ubuntu:bionic-20180426
 
 MAINTAINER Jeremiah H. Savage <jeremiahsavage@gmail.com>
 
@@ -6,6 +6,8 @@ RUN apt-get update \
     && apt-get install -y \
        bzip2 \
        gcc \
+       libbz2-dev \
+       liblzma-dev \
        libncurses5-dev \
        make \
        wget \
@@ -18,11 +20,12 @@ RUN apt-get update \
     && mv bwa /usr/local/bin/ \
     && cd ../ \
     && rm -rf bwa* \
-    && wget https://github.com/samtools/samtools/releases/download/1.3.1/samtools-1.3.1.tar.bz2 \
-    && tar xvf samtools-1.3.1.tar.bz2 \
-    && cd samtools-1.3.1 \
+    && wget https://github.com/samtools/samtools/releases/download/1.8/samtools-1.8.tar.bz2 \
+    && tar xf samtools-1.8.tar.bz2 \
+    && cd samtools-1.8 \
     && ./configure --prefix=/usr/local \
     && make \
     && make install \
-    && rm -rf samtools* \
+    && cd ../
+    && rm -rf samtools-1.8 \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
