@@ -26,6 +26,6 @@ RUN apt-get update \
     && ./configure --prefix=/usr/local \
     && make \
     && make install \
-    && cd ../
+    && cd ../ \
     && rm -rf samtools-1.8 \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
