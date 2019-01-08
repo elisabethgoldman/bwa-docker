@@ -13,7 +13,7 @@ RUN apt-get update \
        wget \
        zlib1g-dev \
     && apt-get clean \
-    && wget https://github.com/jeremiahsavage/bwa/archive/gdc_a.tar.gz \
+    && wget https://github.com/NCI-GDC/bwa/archive/gdc_a.tar.gz \
     && tar xf gdc_a.tar.gz \
     && cd bwa-gdc_a \
     && make \
