@@ -1,0 +1,26 @@
+FROM quay.io/ncigdc/bio-ubuntu:20.04 as builder
+ARG VERSION
+
+ENV BWA_URL=https://github.com/lh3/bwa/releases/download/v$VERSION/bwa-$VERSION.tar.bz2
+
+RUN apt-get update \
+    && apt-get install -y \
+       bzip2 \
+       gcc \
+       libbz2-dev \
+       liblzma-dev \
+       libncurses5-dev \
+       make \
+       wget \
+       zlib1g-dev \
+    && wget -O bwa.tar.bz2 $BWA_URL \
+    && tar xf bwa.tar.bz2 \
+    && cd bwa-$VERSION \
+    && make \
+    && mv bwa /usr/local/bin/
+
+FROM quay.io/ncigdc/bio-ubuntu:20.04
+COPY --from=builder /usr/local/bin/bwa /usr/local/bin/
+
+ENTRYPOINT ["bwa"]
+CMD ["--help"]
