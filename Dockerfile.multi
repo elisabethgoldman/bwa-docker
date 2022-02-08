@@ -23,4 +23,3 @@ FROM quay.io/ncigdc/bio-ubuntu:20.04
 COPY --from=builder /usr/local/bin/bwa /usr/local/bin/
 
 ENTRYPOINT ["bwa"]
-CMD ["--help"]
