@@ -13,9 +13,9 @@ RUN apt-get update \
        wget \
        zlib1g-dev \
     && apt-get clean \
-    && wget https://github.com/NCI-GDC/bwa/archive/gdc_a.tar.gz \
-    && tar xf gdc_a.tar.gz \
-    && cd bwa-gdc_a \
+    && wget https://github.com/lh3/bwa/releases/download/v0.7.15/bwa-0.7.15.tar.bz2 \
+    && tar xf bwa-0.7.15.tar.bz2 \
+    && cd bwa-0.7.15 \
     && make \
     && mv bwa /usr/local/bin/ \
     && cd ../ \
